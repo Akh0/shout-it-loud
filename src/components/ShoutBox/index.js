@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app'
 import Text from './Text'
 
 const Wrapper = styled.div`
+  background-color: #fcf5ff;
   border: 5px solid hotpink;
   border-bottom: 0;
   width: 100%;
@@ -14,8 +15,8 @@ const Wrapper = styled.div`
 
 const ShoutBox = () => {
   const wrapperRef = useRef()
+
   const [messages, setMessages] = useState([])
-  console.log('ShoutBox -> messages', messages)
 
   useEffect(() => {
     wrapperRef.current.scrollTop = wrapperRef.current.scrollHeight

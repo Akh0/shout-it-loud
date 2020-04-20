@@ -6,8 +6,8 @@ const Wrapper = styled('div', {
   shouldForwardProp: (prop) => prop === 'children'
 })`
   font-size: 30px;
-  font-family: fantasy, cursive;
   margin-bottom: 4px;
+  font-family: ${({ fontFamily }) => `${fontFamily}, fantasy, cursive`};
   font-size: ${({ fontSize }) => fontSize};
   font-style: ${({ fontStyle }) => fontStyle};
   font-weight: ${({ fontWeight }) => fontWeight};
