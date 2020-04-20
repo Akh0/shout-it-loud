@@ -1,0 +1,22 @@
+{
+  "name": "shout-it-loud",
+  "version": "1.0.0",
+  "description": "Real time single channel talking app",
+  "author": "Achille Guillon <achille.guillon@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "firebase": "^7.14.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "scripts": {
+    "develop": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  }
+}
