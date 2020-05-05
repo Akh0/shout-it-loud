@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 import styled from '@emotion/styled'
 import * as firebase from 'firebase/app'
 import Text from './Text'
