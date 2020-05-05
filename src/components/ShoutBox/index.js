@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from 'react'
 import styled from '@emotion/styled'
 import * as firebase from 'firebase/app'
 import Text from './Text'
+import useDimensions from './useDimensions'
 
 const Wrapper = styled.div`
+  position: relative;
   background-color: #fcf5ff;
   border: 5px solid hotpink;
   border-bottom: 0;
@@ -14,12 +16,12 @@ const Wrapper = styled.div`
 `
 
 const ShoutBox = () => {
-  const wrapperRef = useRef()
+  const [ref, { width, height }] = useDimensions()
 
   const [messages, setMessages] = useState([])
 
   useEffect(() => {
-    wrapperRef.current.scrollTop = wrapperRef.current.scrollHeight
+    ref.current.scrollTop = ref.current.scrollHeight
   }, [messages.length])
 
   useEffect(() => {
@@ -38,9 +40,15 @@ const ShoutBox = () => {
   }, [])
 
   return (
-    <Wrapper ref={wrapperRef}>
+    <Wrapper ref={ref}>
       {messages.map(({ id, text, effects }) => (
-        <Text text={text} effects={effects} key={id} />
+        <Text
+          text={text}
+          effects={effects}
+          xMax={width}
+          yMax={height}
+          key={id}
+        />
       ))}
     </Wrapper>
   )
