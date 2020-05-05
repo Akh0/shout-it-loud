@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import * as firebase from 'firebase/app'
+import useDimensions from './useDimensions'
 import Text from './Text'
 
 const Wrapper = styled.div`
@@ -9,17 +10,16 @@ const Wrapper = styled.div`
   border-bottom: 0;
   width: 100%;
   height: 80vh;
-  padding: 20px;
-  overflow: auto;
+  overflow: hidden;
 `
 
 const ShoutBox = () => {
-  const wrapperRef = useRef()
+  const [ref, { width, height }] = useDimensions()
 
   const [messages, setMessages] = useState([])
 
   useEffect(() => {
-    wrapperRef.current.scrollTop = wrapperRef.current.scrollHeight
+    ref.current.scrollTop = ref.current.scrollHeight
   }, [messages.length])
 
   useEffect(() => {
@@ -38,9 +38,15 @@ const ShoutBox = () => {
   }, [])
 
   return (
-    <Wrapper ref={wrapperRef}>
+    <Wrapper ref={ref}>
       {messages.map(({ id, text, effects }) => (
-        <Text text={text} effects={effects} key={id} />
+        <Text
+          text={text}
+          effects={effects}
+          xMax={width - 10}
+          yMax={height - 10}
+          key={id}
+        />
       ))}
     </Wrapper>
   )

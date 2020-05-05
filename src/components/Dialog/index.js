@@ -7,7 +7,8 @@ import {
   getRandomFontSize,
   getRandomFontStyle,
   getRandomFontWeight,
-  getRandomTextShadow
+  getRandomTextShadow,
+  getRandomDeg
 } from './effects'
 
 const database = firebase.database()
@@ -67,7 +68,10 @@ const Dialog = () => {
           fontSize: getRandomFontSize(),
           fontStyle: getRandomFontStyle(),
           fontWeight: getRandomFontWeight(),
-          textShadow: getRandomTextShadow()
+          textShadow: getRandomTextShadow(),
+          rotate: getRandomDeg(),
+          xFactor: Math.random(),
+          yFactor: Math.random()
         }
       }
     }
