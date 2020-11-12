@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
-import * as firebase from 'firebase/app'
+import firebase from 'firebase/app'
 import CharCounter from './CharCounter'
 import {
   getRandomFontFamily,

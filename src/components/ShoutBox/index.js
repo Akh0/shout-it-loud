@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import * as firebase from 'firebase/app'
+import firebase from 'firebase/app'
 import useDimensions from './useDimensions'
 import Text from './Text'
 
